@@ -1,11 +1,11 @@
-import { createSpotifyUri, resolveId, resolveUris, unfactorizeValue, unwrapAwaitable } from './utils.js'
+import { createSpotifyUri, resolveId, resolveUris, unfactorizeValue, unwrapAwaitable } from './utils'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import Axca from 'axios-cache-adapter'
-import { Api, Paginated, Query, Response } from './api.types.js'
-import type { Awaitable, Constructor, ConstructorMapUnion, FactoryValue } from './types.js'
-import { Album, Artist, Episode, Pagination, Playlist, RecentPlayedItem, Show, Track, User } from './entities/index.js'
-import { PlaylistItem } from './entities/index.js'
-import { Recommendations } from './entities/Recommendations.entity.js'
+import { Api, Paginated, Query, Response } from './api.types'
+import type { Awaitable, Constructor, ConstructorMapUnion, FactoryValue } from './types'
+import { Album, Artist, Episode, Pagination, Playlist, RecentPlayedItem, Show, Track, User } from './entities'
+import { PlaylistItem } from './entities'
+import { Recommendations } from './entities/Recommendations.entity'
+import axios  from 'axios'
 
 export interface SpotifyClientOptions {
   /**
@@ -84,11 +84,8 @@ export class SpotifyClient {
     if (this.options.accessToken)
       this.at = await unfactorizeValue(this.options.accessToken)
     else await this.refresh()
-    this._axiosInstance = Axca.setup({
+    this._axiosInstance = axios.create({
       baseURL: 'https://api.spotify.com/v1',
-      cache: {
-        maxAge: 30 * 60 * 1000,
-      },
     })
     this.instance.interceptors.request.use(config => {
       config.headers = config.headers ?? {}
@@ -113,6 +110,10 @@ export class SpotifyClient {
         throw error
       },
     )
+  }
+
+  get ready() {
+    return !!this._axiosInstance
   }
 
   async refresh() {

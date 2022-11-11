@@ -1,7 +1,7 @@
-import type { Api, Query } from '../api.types.js'
-import type { SpotifyClient } from '../client.js'
-import { Entity } from './Entity.js'
-import { SpotifyUri } from '../interfaces/SpotifyUri.js'
+import type { Api, Query } from '../api.types'
+import type { SpotifyClient } from '../client'
+import { Entity } from './Entity'
+import { SpotifyUri } from '../interfaces/SpotifyUri'
 
 @Entity
 export class User implements SpotifyUri {

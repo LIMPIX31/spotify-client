@@ -1,7 +1,7 @@
-import type { SpotifyClient } from '../client.js'
-import type { Api } from '../api.types.js'
-import { Entity } from './Entity.js'
-import type { Constructor } from '../types.js'
+import type { SpotifyClient } from '../client'
+import type { Api } from '../api.types'
+import { Entity } from './Entity'
+import type { Constructor } from '../types'
 
 @Entity
 export class Pagination<I, A> {

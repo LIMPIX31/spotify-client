@@ -1,8 +1,8 @@
-import type { SpotifyClient } from '../client.js'
-import type { Api } from '../api.types.js'
-import { Entity } from './Entity.js'
-import type { Query } from '../api.types.js'
-import { SpotifyUri } from '../interfaces/SpotifyUri.js'
+import type { SpotifyClient } from '../client'
+import type { Api } from '../api.types'
+import { Entity } from './Entity'
+import type { Query } from '../api.types'
+import { SpotifyUri } from '../interfaces/SpotifyUri'
 
 @Entity
 export class Playlist implements SpotifyUri {

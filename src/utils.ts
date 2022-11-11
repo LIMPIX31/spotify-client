@@ -1,15 +1,11 @@
-import { Awaitable, FactoryValue } from './types.js'
+import { Awaitable, FactoryValue } from './types'
 import chalk from 'chalk'
-import { Api } from './api.types.js'
+import { Api } from './api.types'
 
 const isFunction = (value: any): value is Function => typeof value === 'function'
 
 export const unfactorizeValue = async <T>(value?: FactoryValue<T>) =>
   value !== undefined ? isFunction(value) ? await value() : await value : value
-
-export const Throw = (err: any) => {
-  throw err
-}
 
 export const unwrapAwaitable = async <T>(awaitable: Awaitable<T>) => await awaitable
 

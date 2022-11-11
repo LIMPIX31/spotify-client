@@ -1,5 +1,5 @@
-import type { Pagination } from './entities/index.js'
-import { Paginated } from './api.types.js'
+import type { Pagination } from './entities'
+import { Paginated } from './api.types'
 
 export type Awaitable<T> = Promise<T> | T
 export type FactoryValue<T> = Awaitable<T> | ((...args: any[]) => Awaitable<T>)

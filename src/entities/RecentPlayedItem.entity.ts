@@ -1,8 +1,8 @@
-import { Entity } from './Entity.js'
-import type { SpotifyClient } from '../client.js'
-import type { Api } from '../api.types.js'
-import { Track } from './Track.entity.js'
-import { Episode } from './Episode.entity.js'
+import { Entity } from './Entity'
+import type { SpotifyClient } from '../client'
+import type { Api } from '../api.types'
+import { Track } from './Track.entity'
+import { Episode } from './Episode.entity'
 
 @Entity
 export class RecentPlayedItem {

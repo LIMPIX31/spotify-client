@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { visualize } from '../utils.js'
+import { visualize } from '../utils'
 
 export const Entity: ClassDecorator = (target: any) => {
   target.prototype['toString'] = function() {

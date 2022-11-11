@@ -1,5 +1,5 @@
-import { Range } from './types.js'
-import type * as Entity from './entities/index.js'
+import { Range } from './types'
+import type * as Entity from './entities'
 
 export namespace Api {
   export interface Basic<T extends string = string> {
